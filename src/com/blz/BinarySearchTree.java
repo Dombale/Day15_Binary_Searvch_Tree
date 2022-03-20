@@ -1,7 +1,6 @@
 package com.blz;
 
 public class BinarySearchTree {
-
 	Node root;
 
 	public static void main(String[] args) {
@@ -11,6 +10,7 @@ public class BinarySearchTree {
 			bst.insertion(data);
 		}
 		bst.displayBST(bst.root);
+		bst.search(bst.root, 63);
 	}
 
 	public void insertion(int data) {
@@ -48,5 +48,16 @@ public class BinarySearchTree {
 		if (node.right != null) {
 			displayBST(node.right);
 		}
+	}
+
+	public void search(Node node, int data) {
+		if (node.data == data)
+			System.out.println(data + " present");
+		else if (node.data < data && node.right != null)
+			search(node.right, data);
+		else if (node.data > data && node.left != null)
+			search(node.left, data);
+		else
+			System.out.println(data + " not present");
 	}
 }
