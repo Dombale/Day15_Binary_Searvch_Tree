@@ -6,9 +6,10 @@ public class BinarySearchTree {
 
 	public static void main(String[] args) {
 		BinarySearchTree bst = new BinarySearchTree();
-		bst.insertion(56);
-		bst.insertion(30);
-		bst.insertion(70);
+		int[] nodeData = { 56, 30, 70, 22, 40, 11, 3, 16, 60, 95, 65, 63, 67 };
+		for (int data : nodeData) {
+			bst.insertion(data);
+		}
 		bst.displayBST(bst.root);
 	}
 
@@ -18,12 +19,12 @@ public class BinarySearchTree {
 		n.left = null;
 		n.right = null;
 
-		if (root == null) { // If tree is empty
+		if (root == null) {
 			root = n;
 		} else {
 			Node parent = root;
 			Node current = root;
-			while (current != null) { // Finding Parent Of Node n.
+			while (current != null) {
 				parent = current;
 				if (n.data > current.data) {
 					current = current.right;
@@ -44,7 +45,6 @@ public class BinarySearchTree {
 			displayBST(node.left);
 		}
 		System.out.println(node.data);
-
 		if (node.right != null) {
 			displayBST(node.right);
 		}
